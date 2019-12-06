@@ -3,6 +3,7 @@ package com.paysera.lib.blacklist.entities
 import java.util.*
 
 data class Restriction(
+    val id: Int,
     val userId: String,
     val type: String?,
     val status: String?,
