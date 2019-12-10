@@ -15,4 +15,4 @@ data class Restriction(
     val reviewStatus: String?,
     val comments: List<RestrictionComment>?,
     val resolvedAt: Date?
-    )
+)
