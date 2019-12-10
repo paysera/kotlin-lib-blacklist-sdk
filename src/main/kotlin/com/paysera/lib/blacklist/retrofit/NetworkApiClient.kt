@@ -10,7 +10,7 @@ interface NetworkApiClient {
     @GET("restrictions")
     fun getUserRestrictions(
         @Query("statuses[]") statuses: List<String>,
-        @Query("hidden") hidden: String?,
+        @Query("hidden") hidden: Boolean,
         @Query("user_id") userId: Int?
     ): Deferred<MetadataAwareResponse<Restriction>>
 }
