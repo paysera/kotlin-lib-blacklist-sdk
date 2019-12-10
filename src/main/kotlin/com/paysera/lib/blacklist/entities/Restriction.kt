@@ -13,6 +13,6 @@ data class Restriction(
     val createdAt: Date?,
     val hidden: Boolean?,
     val reviewStatus: String?,
-    val comments: List<RestrictionComment>?,
+    val comments: List<RestrictionComment>,
     val resolvedAt: Date?
     )
