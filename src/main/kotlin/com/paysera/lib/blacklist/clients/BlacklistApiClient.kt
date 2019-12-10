@@ -10,7 +10,7 @@ class BlacklistApiClient(
     private val networkApiClient: NetworkApiClient
 ) : BaseApiClient {
 
-    fun getUserRestrictions(filter: RestrictionFIlter): Deferred<MetadataAwareResponse<Restriction>> {
+    fun getUserRestrictions(filter: RestrictionFilter): Deferred<MetadataAwareResponse<Restriction>> {
         return networkApiClient.getUserRestrictions(
             statuses = filter.statuses,
             hidden = filter.hidden,
