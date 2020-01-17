@@ -5,7 +5,14 @@ import com.paysera.lib.common.interfaces.TokenRefresherInterface
 import com.paysera.lib.common.retrofit.BaseApiFactory
 import com.paysera.lib.blacklist.clients.BlacklistApiClient
 
-class NetworkApiFactory(credentials: ApiCredentials, timeout: Long? = null) : BaseApiFactory<BlacklistApiClient>(credentials, timeout) {
+class NetworkApiFactory(
+    userAgent: String?,
+    credentials: ApiCredentials,
+    timeout: Long? = null
+) : BaseApiFactory<BlacklistApiClient>(
+    userAgent,
+    credentials,
+    timeout) {
 
     override fun createClient(baseUrl: String, tokenRefresher: TokenRefresherInterface?): BlacklistApiClient {
         createRetrofit(baseUrl, tokenRefresher).apply {
