@@ -8,11 +8,14 @@ import com.paysera.lib.blacklist.clients.BlacklistApiClient
 class NetworkApiFactory(
     userAgent: String?,
     credentials: ApiCredentials,
-    timeout: Long? = null
+    timeout: Long? = null,
+    httpLoggingInterceptorLevel: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BASIC
 ) : BaseApiFactory<BlacklistApiClient>(
     userAgent,
     credentials,
-    timeout) {
+    timeout,
+    httpLoggingInterceptorLevel
+) {
 
     override fun createClient(baseUrl: String, tokenRefresher: TokenRefresherInterface?): BlacklistApiClient {
         createRetrofit(baseUrl, tokenRefresher).apply {
