@@ -1,6 +1,6 @@
 package com.paysera.lib.blacklist.entities
 
 data class RestrictionRestrictedAction(
-    val id: String,
+    val id: Int,
     val action: String
 )
