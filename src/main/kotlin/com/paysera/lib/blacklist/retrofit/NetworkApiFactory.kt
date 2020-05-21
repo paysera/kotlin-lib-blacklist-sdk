@@ -17,9 +17,11 @@ class NetworkApiFactory(
     timeout,
     httpLoggingInterceptorLevel
 ) {
+    override val baseUrl = "https://blacklist.paysera.com/restriction/rest/v1/"
+    override val certifiedHosts = listOf("blacklist.paysera.com")
 
-    override fun createClient(baseUrl: String, tokenRefresher: TokenRefresherInterface?): BlacklistApiClient {
-        createRetrofit(baseUrl, tokenRefresher).apply {
+    override fun createClient(tokenRefresher: TokenRefresherInterface?): BlacklistApiClient {
+        createRetrofit(tokenRefresher).apply {
             return BlacklistApiClient(
                 retrofit.create(NetworkApiClient::class.java),
                 apiRequestManager
