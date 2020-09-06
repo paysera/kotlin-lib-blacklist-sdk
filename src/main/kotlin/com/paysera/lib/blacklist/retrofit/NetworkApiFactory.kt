@@ -8,21 +8,22 @@ import com.paysera.lib.common.retrofit.BaseApiFactory
 import okhttp3.logging.HttpLoggingInterceptor
 
 class NetworkApiFactory(
+    baseUrl: String,
     userAgent: String?,
     credentials: ApiCredentials,
+    certifiedHosts: List<String> = emptyList(),
     timeout: Long? = null,
     httpLoggingInterceptorLevel: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BASIC,
-    errorLoggerInterface: ErrorLoggerInterface
+    errorLogger: ErrorLoggerInterface
 ) : BaseApiFactory<BlacklistApiClient>(
+    baseUrl,
     userAgent,
     credentials,
+    certifiedHosts,
     timeout,
     httpLoggingInterceptorLevel,
-    errorLoggerInterface
+    errorLogger
 ) {
-    override val baseUrl = "https://blacklist.paysera.com/restriction/rest/v1/"
-    override val certifiedHosts = listOf("blacklist.paysera.com")
-
     override fun createClient(tokenRefresher: TokenRefresherInterface?): BlacklistApiClient {
         createRetrofit(tokenRefresher).apply {
             return BlacklistApiClient(
