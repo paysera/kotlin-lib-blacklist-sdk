@@ -1,7 +1,7 @@
 object ApplicationConfiguration {
     const val artifactId = "kotlin-lib-blacklist-sdk"
     const val groupId = "com.paysera.lib"
-    const val version = "1.9.8-SNAPSHOT"
+    const val version = "1.9.8"
     const val name = "Kotlin Library Blacklist SDK"
     const val url = "https://www.paysera.com/v2/en-GB/index"
     const val description = "Paysera: Kotlin Blacklist SDK Library"
